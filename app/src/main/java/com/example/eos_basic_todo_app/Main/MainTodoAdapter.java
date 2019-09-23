@@ -10,10 +10,22 @@ import com.example.eos_basic_todo_app.Data.Entity.TodoItem;
 import com.example.eos_basic_todo_app.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainTodoAdapter extends RecyclerView.Adapter<MainTodoViewHolder> {
 
     private ArrayList<TodoItem> itemList = new ArrayList<>();
+
+    public void submitAll(List<TodoItem> list){
+        itemList.clear();
+        itemList.addAll(list);
+         notifyDataSetChanged();
+    }
+
+    public void add_item(TodoItem item){
+        itemList.add(item);
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
